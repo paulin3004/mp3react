@@ -1,6 +1,6 @@
 export const tracklist = [
     {
-        name:'Substance',
+        name:'Need_U',
         src:'./src/assets/NeedU.mp3'
     },
     {

@@ -1,15 +1,27 @@
 .buttons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
   
-  button{
-    padding: 10px;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 2em;
-    cursor: pointer;
+button{
+  padding: 10px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.songtag{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+
+  .mask{
+    font-size: 8em;
   }
+}
