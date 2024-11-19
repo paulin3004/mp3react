@@ -25,3 +25,25 @@ button{
     font-size: 8em;
   }
 }
+.spacetime{
+  width: 25rem;
+}
+.barprogress{
+  background-color: white;
+  height: 5px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.progress{
+  background-color: black;
+  height: 5px;
+}
+.timer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  width: 100%;
+}
