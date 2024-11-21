@@ -15,14 +15,10 @@ export default function Controls(){
     const [stagebutton, setStagebutton] = useState(<PiPlayFill/>)
     const [fulltime, setFulltime] = useState("0:00")
     const [currentTime, setCurrentime] = useState("0:00")
-    let viewprogress = 0
-    let calcprogress = 0
+    const [fulltimesec, setFulltimesec] = useState(null)
 
     //Monitoring the audio tag with the useRef method
     const audioRef = useRef(null);//Here, we basically turn a variable into a reference point
-    const progressRef = useRef(null);
-
-    const fullwidthbar = Number(400);
 
 
     function calcFulltime(){
@@ -33,6 +29,7 @@ export default function Controls(){
         }
         setTimeout(()=>{
             setFulltime(fullMinutes + ':' + fullSeconds)
+            setFulltimesec(audioRef.current.duration)
         }, 300)
     }
     
@@ -43,11 +40,6 @@ export default function Controls(){
             fullSeconds = '0' + fullSeconds
         }
         setCurrentime(fullMinutes + ':' + fullSeconds)
-        viewprogress = Number(audioRef.current.currentTime/audioRef.current.duration)
-        setTimeout(()=>{
-            calcprogress = Math.floor(viewprogress * fullwidthbar)
-        }, 1000)
-        console.log(calcprogress)
     }
 
     //play and pause function
@@ -95,7 +87,9 @@ export default function Controls(){
             <div className='spacetime'>
 
                 <div className='barprogress'>
-                    <div className='progress' style={{width:calcprogress}} ref={progressRef}></div>
+                    <input type="range" id='progress'
+                    min={0}
+                    max={fulltimesec}/>
                 </div>
 
                 <div className='timer'>

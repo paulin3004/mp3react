@@ -29,16 +29,13 @@ button{
   width: 25rem;
 }
 .barprogress{
-  background-color: white;
-  height: 5px;
   width: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.progress{
-  background-color: black;
-  height: 5px;
+#progress{
+  width: 100%;
 }
 .timer{
   display: flex;
