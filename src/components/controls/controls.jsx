@@ -16,6 +16,7 @@ export default function Controls(){
     const [fulltime, setFulltime] = useState("0:00")
     const [currentTime, setCurrentime] = useState("0:00")
     const [fulltimesec, setFulltimesec] = useState(null)
+    const [currentimesec, setCurrentimesec] = useState(null)
 
     //Monitoring the audio tag with the useRef method
     const audioRef = useRef(null);//Here, we basically turn a variable into a reference point
@@ -40,6 +41,7 @@ export default function Controls(){
             fullSeconds = '0' + fullSeconds
         }
         setCurrentime(fullMinutes + ':' + fullSeconds)
+        setCurrentimesec(audioRef.current.currentTime)
     }
 
     //play and pause function
@@ -72,6 +74,10 @@ export default function Controls(){
         setTimeout(playAndPauseSong, 400)
     }
 
+    const switchthetime = (e) => {
+        audioRef.current.currentTime = e.target.value;
+    }
+
     return(
         <>
             <audio src={tracklist[indexsong].src} onLoadedMetadata={calcFulltime} onTimeUpdate={calcCurrentTime} ref={audioRef}/>
@@ -89,7 +95,9 @@ export default function Controls(){
                 <div className='barprogress'>
                     <input type="range" id='progress'
                     min={0}
-                    max={fulltimesec}/>
+                    max={fulltimesec}
+                    value={currentimesec}
+                    onChange={switchthetime}/>
                 </div>
 
                 <div className='timer'>
